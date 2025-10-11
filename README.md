@@ -139,6 +139,8 @@ npm publish --access public
 - [Посібник для контриб’юторів](CONTRIBUTING.md) — як допомогти проєкту.
 - [Політика безпеки](SECURITY.md) — повідомлення про проблеми безпеки.
 
+---
+
 ## BarelyJS Monorepo :uk:
 
 This repository contains the development of **BarelyJS**, a minimalistic frontend library, and **create-barelyjs-app**, a CLI tool for scaffolding new projects using BarelyJS.
