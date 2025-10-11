@@ -11,6 +11,8 @@
 - No dependencies, pure JavaScript
 - No build step required — just install, include in your HTML, and start using
 
+> NOTE: If you want to quickly scaffold a new project using BarelyJS, check out the [create-barelyjs-app](https://www.npmjs.com/package/create-barelyjs-app) CLI tool.
+
 ## Installation
 
 ```bash

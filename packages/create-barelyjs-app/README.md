@@ -2,6 +2,8 @@
 
 **create-barelyjs-app** is a command-line tool for quickly scaffolding new projects using the **BarelyJS** library.
 
+> Note: This CLI tool works with the [BarelyJS](https://www.npmjs.com/package/barelyjs) library. Check out BarelyJS to see how to build UI components and use the template created by this tool.
+
 ## Installation
 
 ```bash
