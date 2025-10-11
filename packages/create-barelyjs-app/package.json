@@ -1,0 +1,28 @@
+{
+  "name": "create-barelyjs-app",
+  "version": "1.0.0",
+  "description": "CLI tool to create a new BarelyJS project",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "create-barelyjs-app": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "template"
+  ],
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "barelyjs",
+    "cli",
+    "template",
+    "create-app"
+  ],
+  "author": "NikitaBerezhnyj",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "barelyjs",
+  "version": "1.0.1",
+  "description": "A minimalistic frontend library for building UI components",
+  "main": "dist/barelyjs.cjs.js",
+  "module": "dist/barelyjs.esm.js",
+  "browser": "dist/barelyjs.iife.js",
+  "exports": {
+    ".": {
+      "import": "./dist/barelyjs.esm.js",
+      "require": "./dist/barelyjs.cjs.js",
+      "browser": "./dist/barelyjs.iife.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "barelyjs",
+    "frontend",
+    "ui",
+    "library",
+    "javascript",
+    "framework",
+    "minimal"
+  ],
+  "author": {
+    "name": "NikitaBerezhnyj",
+    "email": "nikita.berezhnyj@gmail.com",
+    "url": "https://github.com/NikitaBerezhnyj"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikitaBerezhnyj/BarelyJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NikitaBerezhnyj/BarelyJS/issues"
+  },
+  "homepage": "https://github.com/NikitaBerezhnyj/BarelyJS#readme",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.52.4"
+  },
+  "type": "module"
+}
