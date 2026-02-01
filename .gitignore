@@ -1,3 +1,4 @@
 dist
-node_modules
 *.tgz
+.devnotes
+node_modules
