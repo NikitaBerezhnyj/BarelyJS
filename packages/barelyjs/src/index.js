@@ -9,7 +9,18 @@ export function render(vnode, container) {
   mount(vnode, container);
 }
 
+export function Fragment(props) {
+  return props.children;
+}
+
 function mount(vnode, container) {
+  if (vnode == null || vnode === false) return;
+
+  if (Array.isArray(vnode)) {
+    vnode.forEach(child => mount(child, container));
+    return;
+  }
+
   if (typeof vnode === "string" || typeof vnode === "number") {
     container.appendChild(document.createTextNode(vnode));
     return;
@@ -26,10 +37,10 @@ function mount(vnode, container) {
 
   const el = document.createElement(vnode.type);
 
-  for (const [key, value] of Object.entries(vnode.props)) {
+  for (const [key, value] of Object.entries(vnode.props || {})) {
     if (key.startsWith("on") && typeof value === "function") {
       el.addEventListener(key.slice(2).toLowerCase(), value);
-    } else if (key === "class") {
+    } else if (key === "class" || key === "className") {
       el.className = value;
     } else {
       el.setAttribute(key, value);
@@ -45,6 +56,7 @@ export function useState(initial) {
   if (!comp.states) comp.states = [];
 
   const stateIndex = comp.stateIndex;
+
   if (comp.states[stateIndex] === undefined) {
     comp.states[stateIndex] = initial;
   }
@@ -55,7 +67,6 @@ export function useState(initial) {
   }
 
   comp.stateIndex++;
-
   return [comp.states[stateIndex], setState];
 }
 
