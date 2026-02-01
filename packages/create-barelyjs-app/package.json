@@ -1,6 +1,6 @@
 {
   "name": "create-barelyjs-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CLI tool to create a new BarelyJS project",
   "main": "index.js",
   "type": "module",
@@ -13,6 +13,9 @@
   ],
   "scripts": {
     "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "prompts": "^2.4.2"
   },
   "keywords": [
     "barelyjs",
