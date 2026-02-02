@@ -2,25 +2,33 @@
 import fs from "fs";
 import path from "path";
 import { execSync } from "child_process";
-import readline from "readline";
 import { fileURLToPath } from "url";
 import prompts from "prompts";
+
+const FLAG_MAP = {
+  "--js": "js",
+  "--jsx": "jsx",
+  "--ts": "ts",
+  "--tsx": "tsx"
+};
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const args = process.argv.slice(2);
 const appName = args.find(arg => !arg.startsWith("--"));
-const hasJsxFlag = args.includes("--jsx");
 const hasJsFlag = args.includes("--js");
+const hasJsxFlag = args.includes("--jsx");
+const hasTsFlag = args.includes("--ts");
+const hasTsxFlag = args.includes("--tsx");
 
 if (!appName) {
-  console.error("Usage: create-barelyjs-app <app-name> [--js | --jsx]");
+  console.error("Usage: create-barelyjs-app <app-name> [--js | --jsx | --ts | --tsx]");
   process.exit(1);
 }
 
 if (hasJsxFlag && hasJsFlag) {
-  console.error("Use only one flag: --js OR --jsx");
+  console.error("Use only one flag: --js, --jsx, --ts, or --tsx");
   process.exit(1);
 }
 
@@ -53,7 +61,9 @@ async function askTemplate() {
     message: "Which template do you want to use?",
     choices: [
       { title: "JavaScript", value: "js" },
-      { title: "JSX (Vite)", value: "jsx" }
+      { title: "JSX (Vite)", value: "jsx" },
+      { title: "TypeScript", value: "ts" },
+      { title: "TSX (Vite)", value: "tsx" }
     ],
     initial: 0
   });
@@ -61,13 +71,9 @@ async function askTemplate() {
   return response.template;
 }
 
-let templateType;
+let templateType = Object.entries(FLAG_MAP).find(([flag]) => args.includes(flag))?.[1];
 
-if (hasJsxFlag) {
-  templateType = "jsx";
-} else if (hasJsFlag) {
-  templateType = "js";
-} else {
+if (!templateType) {
   templateType = await askTemplate();
 }
 
@@ -97,7 +103,9 @@ if (fs.existsSync(packageJsonPath)) {
 console.log("Installing dependencies...");
 execSync("npm install", { cwd: targetDir, stdio: "inherit" });
 
+const viteTemplates = ["jsx", "tsx"];
+
 console.log("Done!");
 console.log("Run the following commands:");
 console.log(`  cd ${appName}`);
-console.log(templateType === "jsx" ? "  npm run dev" : "  npx serve");
+console.log(viteTemplates.includes(templateType) ? "  npm run dev" : "  npx serve");

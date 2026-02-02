@@ -1,0 +1,116 @@
+:root {
+  --color-bg: #f0f0f0;
+  --color-root: #ffffff;
+  --color-header: #2c3e50;
+  --color-footer: #34495e;
+  --color-primary: #4caf50;
+  --color-primary-hover: #45a049;
+  --color-text: #333;
+  --spacing-root: 60px;
+  --spacing-button: 15px 30px;
+  --radius-root: 16px;
+  --radius-button: 8px;
+  --shadow-root: 0 8px 20px rgba(0, 0, 0, 0.15);
+  --font-family: Arial, sans-serif;
+  --font-size-button: 18px;
+  --font-size-count: 48px;
+  --font-size-header: 24px;
+  --font-size-footer: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  display: block;
+}
+
+.app-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.app-header {
+  width: 100%;
+  padding: 20px 40px;
+  background-color: var(--color-header);
+  color: white;
+  font-size: var(--font-size-header);
+  font-weight: bold;
+  text-align: left;
+}
+
+.app-footer {
+  width: 100%;
+  padding: 15px 40px;
+  background-color: var(--color-footer);
+  color: white;
+  text-align: center;
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-root);
+}
+
+.app-footer a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
+
+.count-block {
+  background-color: var(--color-root);
+  padding: var(--spacing-root);
+  border-radius: var(--radius-root);
+  box-shadow: var(--shadow-root);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: auto 0;
+  min-width: 350px;
+}
+
+.count-block h1 {
+  font-size: var(--font-size-count);
+  color: var(--color-text);
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.my-button {
+  padding: var(--spacing-button);
+  font-size: var(--font-size-button);
+  border: none;
+  border-radius: var(--radius-button);
+  background-color: var(--color-primary);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.my-button:hover {
+  background-color: var(--color-primary-hover);
+}
