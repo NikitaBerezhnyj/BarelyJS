@@ -19,12 +19,14 @@ npx create-barelyjs-app my-new-app
 ## Usage
 
 ```bash
-create-barelyjs-app <app-name> [--js | --jsx]
+create-barelyjs-app <app-name> [--js | --jsx | --ts | --tsx]
 ```
 
 - `<app-name>` — the name of the new project folder.
 - `--js` — uses a basic JavaScript template.
 - `--jsx` — uses JSX (Vite) template.
+- `--ts` — uses a basic TypeScript template with Vite for runtime.
+- `--jsx` — uses TSX (Vite) template.
 - The tool will create a folder with this name in your current working directory.
 
 Example:
@@ -33,6 +35,8 @@ Example:
 npx create-barelyjs-app barelyjs-example
 npx create-barelyjs-app barelyjs-example --js
 npx create-barelyjs-app barelyjs-example --jsx
+npx create-barelyjs-app barelyjs-example --ts
+npx create-barelyjs-app barelyjs-example --tsx
 ```
 
 This will:
@@ -53,7 +57,7 @@ Once the project is created, you can run:
   npx serve
   ```
 
-- For JSX:
+- For JSX/TS/TSX:
   ```bash
   cd <app-name>
   npm run dev

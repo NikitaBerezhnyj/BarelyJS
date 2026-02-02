@@ -27,7 +27,7 @@ if (!appName) {
   process.exit(1);
 }
 
-if (hasJsxFlag && hasJsFlag) {
+if (hasJsxFlag && hasJsFlag && hasTsFlag && hasTsxFlag) {
   console.error("Use only one flag: --js, --jsx, --ts, or --tsx");
   process.exit(1);
 }
@@ -103,9 +103,7 @@ if (fs.existsSync(packageJsonPath)) {
 console.log("Installing dependencies...");
 execSync("npm install", { cwd: targetDir, stdio: "inherit" });
 
-const viteTemplates = ["jsx", "tsx"];
-
 console.log("Done!");
 console.log("Run the following commands:");
 console.log(`  cd ${appName}`);
-console.log(viteTemplates.includes(templateType) ? "  npm run dev" : "  npx serve");
+console.log(templateType === "js" ? "  npx serve" : "  npm run dev");
