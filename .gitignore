@@ -2,3 +2,4 @@ dist
 *.tgz
 .devnotes
 node_modules
+package-lock.json
