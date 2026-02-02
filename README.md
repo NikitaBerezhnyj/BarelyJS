@@ -17,16 +17,15 @@ Repository has [ukrainian :ukraine:](#-barelyjs-monorepo-ukraine) and [english :
 barelyjs-monorepo/
 ├─ packages/
 │  ├─ barelyjs/
-│  │  └─ (код бібліотеки)
+│  │  └─ (library code)
 │  └─ create-barelyjs-app/
+│     ├─ index.js
 │     └─ templates/
 │        ├─ js/
-│        │  └─ src/
-│        └─ jsx/
-│           └─ src/
-├─ package.json
-├─ package-lock.json
-└─ README.md
+│        ├─ jsx/
+│        ├─ ts/
+│        └─ tsx/
+└─ package.json
 ```
 
 ### Можливості
@@ -80,27 +79,19 @@ npm link ./packages/create-barelyjs-app
 
 #### 4. Створення нового проєкту за допомогою CLI
 
-**Варіант 1: JSX шаблон**
+- **Варіант 1: З прапорцем**
 
-```bash
-npx create-barelyjs-app my-new-app --jsx
-cd my-new-app
-npm run dev
-```
+  ```bash
+  npx create-barelyjs-app my-new-app --js
+  ```
 
-**Варіант 2: JS шаблон (без JSX)**
+  Доступні варіанти шаблонів: js, jsx, ts, tsx
 
-```bash
-npx create-barelyjs-app my-new-app --js
-cd my-new-app
-npx serve
-```
+- **Варіант 2: JS шаблон (без JSX)**
 
-**Варіант 3: Без прапорця (інтерактивний вибір)**
-
-```bash
-npx create-barelyjs-app my-new-app
-```
+  ```bash
+  npx create-barelyjs-app my-new-app
+  ```
 
 ### Використання
 
@@ -172,13 +163,7 @@ npx create-barelyjs-app my-app
 
 Коли ви оновлюєте **barelyjs** або **create-barelyjs-app**, виконайте такі кроки:
 
-1. **Оновіть версію** у кожному `package.json` у теці `packages/`:
-
-```json
-{
-  "version": "1.0.2"
-}
-```
+1. **Оновіть версію** у кожному `package.json` у теці `packages/`
 
 2. **Збірка бібліотеки BarelyJS**:
 
@@ -187,7 +172,9 @@ cd packages/barelyjs
 npm run build
 ```
 
-3. **Публікація пакетів**:
+3. **Оновлення залежностей** в CLI-шаблонах, якщо змінилася версія BarelyJS.
+
+4. **Публікація пакетів**:
 
 ```bash
 cd packages/barelyjs
@@ -195,45 +182,6 @@ npm publish --access public
 
 cd ../create-barelyjs-app
 npm publish --access public
-```
-
-4. **Оновлення залежностей** в CLI-шаблонах, якщо змінилася версія BarelyJS.
-
-### Структура проєкту
-
-#### JSX шаблон
-
-```
-my-app/
-├─ src/
-│  ├─ components/
-│  │  ├─ Button.jsx
-│  │  ├─ Header.jsx
-│  │  └─ Footer.jsx
-│  ├─ styles/
-│  │  └─ main.css
-│  ├─ App.jsx
-│  └─ main.jsx
-├─ index.html
-├─ vite.config.js
-└─ package.json
-```
-
-#### JS шаблон
-
-```
-my-app/
-├─ src/
-│  ├─ components/
-│  │  ├─ Button.js
-│  │  ├─ Header.js
-│  │  └─ Footer.js
-│  ├─ styles/
-│  │  └─ main.css
-│  ├─ App.js
-│  └─ main.js
-├─ index.html
-└─ package.json
 ```
 
 ### API Довідка
@@ -290,14 +238,13 @@ barelyjs-monorepo/
 │  ├─ barelyjs/
 │  │  └─ (library code)
 │  └─ create-barelyjs-app/
+│     ├─ index.js
 │     └─ templates/
 │        ├─ js/
-│        │  └─ src/
-│        └─ jsx/
-│           └─ src/
-├─ package.json
-├─ package-lock.json
-└─ README.md
+│        ├─ jsx/
+│        ├─ ts/
+│        └─ tsx/
+└─ package.json
 ```
 
 ### Features
@@ -351,27 +298,19 @@ npm link ./packages/create-barelyjs-app
 
 #### 4. Create a New Project Using CLI
 
-**Option 1: JSX template**
+- **Option 1: With flag**
 
-```bash
-npx create-barelyjs-app my-new-app --jsx
-cd my-new-app
-npm run dev
-```
+  ```bash
+  npx create-barelyjs-app my-new-app --js
+  ```
 
-**Option 2: JS template (without JSX)**
+  Available template options: js, jsx, ts, tsx
 
-```bash
-npx create-barelyjs-app my-new-app --js
-cd my-new-app
-npx serve
-```
+- **Option 2: JS template (without JSX)**
 
-**Option 3: No flag (interactive selection)**
-
-```bash
-npx create-barelyjs-app my-new-app
-```
+  ```bash
+  npx create-barelyjs-app my-new-app
+  ```
 
 ### Usage
 
@@ -445,12 +384,6 @@ When you update **barelyjs** or **create-barelyjs-app**, follow these steps:
 
 1. **Update the version** in each `package.json` in the `packages/` directory:
 
-```json
-{
-  "version": "1.0.2"
-}
-```
-
 2. **Build the BarelyJS library**:
 
 ```bash
@@ -469,43 +402,6 @@ npm publish --access public
 ```
 
 4. **Update dependencies** in CLI templates if the BarelyJS version has changed.
-
-## Project Structure
-
-#### JSX Template
-
-```
-my-app/
-├─ src/
-│  ├─ components/
-│  │  ├─ Button.jsx
-│  │  ├─ Header.jsx
-│  │  └─ Footer.jsx
-│  ├─ styles/
-│  │  └─ main.css
-│  ├─ App.jsx
-│  └─ main.jsx
-├─ index.html
-├─ vite.config.js
-└─ package.json
-```
-
-#### JS Template
-
-```
-my-app/
-├─ src/
-│  ├─ components/
-│  │  ├─ Button.js
-│  │  ├─ Header.js
-│  │  └─ Footer.js
-│  ├─ styles/
-│  │  └─ main.css
-│  ├─ App.js
-│  └─ main.js
-├─ index.html
-└─ package.json
-```
 
 ### API Reference
 
