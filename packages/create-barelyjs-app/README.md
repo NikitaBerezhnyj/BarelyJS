@@ -26,7 +26,7 @@ create-barelyjs-app <app-name> [--js | --jsx | --ts | --tsx]
 - `--js` — uses a basic JavaScript template.
 - `--jsx` — uses JSX (Vite) template.
 - `--ts` — uses a basic TypeScript template with Vite for runtime.
-- `--jsx` — uses TSX (Vite) template.
+- `--tsx` — uses TSX (Vite) template.
 - The tool will create a folder with this name in your current working directory.
 
 Example:
