@@ -48,10 +48,10 @@ To use BarelyJS in a plain HTML project:
     <div id="root"></div>
 
     <!-- Include the BarelyJS library -->
-    <script src="../node_modules/barelyjs/dist/barelyjs.iife.js"></script>
+    <script src="node_modules/barelyjs/dist/barelyjs.iife.js"></script>
 
     <!-- Your main JS file -->
-    <script type="module" src="../src/main.js"></script>
+    <script type="module" src="src/main.js"></script>
   </body>
 </html>
 ```

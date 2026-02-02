@@ -1,8 +1,9 @@
 import terser from "@rollup/plugin-terser";
+import typescript from "@rollup/plugin-typescript";
 
 export default [
   {
-    input: "src/index.js",
+    input: "src/index.ts",
     output: [
       {
         file: "dist/barelyjs.esm.js",
@@ -18,6 +19,11 @@ export default [
         name: "BarelyJS",
         plugins: [terser()]
       }
+    ],
+    plugins: [
+      typescript({
+        tsconfig: "./tsconfig.json"
+      })
     ]
   }
 ];

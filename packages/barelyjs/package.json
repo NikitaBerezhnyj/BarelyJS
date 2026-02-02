@@ -1,15 +1,17 @@
 {
   "name": "barelyjs",
-  "version": "1.0.4",
+  "version": "1.1.2",
   "description": "A minimalistic frontend library for building UI components",
   "main": "dist/barelyjs.cjs.js",
   "module": "dist/barelyjs.esm.js",
   "browser": "dist/barelyjs.iife.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/barelyjs.esm.js",
       "require": "./dist/barelyjs.cjs.js",
-      "browser": "./dist/barelyjs.iife.js"
+      "browser": "./dist/barelyjs.iife.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
@@ -45,7 +47,12 @@
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
-    "rollup": "^4.57.1"
+    "@rollup/plugin-typescript": "^12.3.0",
+    "rollup": "^4.57.1",
+    "typescript": "^5.9.3"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "tslib": "^2.8.1"
+  }
 }

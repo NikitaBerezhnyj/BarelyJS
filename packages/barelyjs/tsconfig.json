@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "ES2018",
+        "module": "ESNext",
+        "lib": [
+            "DOM",
+            "ES2018"
+        ],
+        "strict": true,
+        "declaration": true,
+        "importHelpers": true,
+        "emitDeclarationOnly": false,
+        "moduleResolution": "Bundler",
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "outDir": "dist",
+        "rootDir": "src"
+    },
+    "include": [
+        "src"
+    ]
+}
